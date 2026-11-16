@@ -25,7 +25,7 @@ contract MiniDefiVault {
         balances[msg.sender] -= amount;
         totalDeposits -= amount;
 
-        (bool success, ) = payable(msg.sender).call{value: amount}("");
+        (bool success,) = payable(msg.sender).call{value: amount}("");
         require(success, "Transfer failed");
 
         emit Withdrawn(msg.sender, amount);
